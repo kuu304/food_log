@@ -83,6 +83,20 @@
    .result {
     overflow: hidden;
    }
+    /* footer設定 */
+    .footer {
+    background-color: rgba(119, 136, 153, 0.497);
+    text-align: center;
+    margin-top: 120px;
+    height: 70px;
+   }
+   .draw {
+    padding-bottom: 250px;
+   }
+   /* footer內容調整 */
+   footer > div {
+    padding-top: 20px;
+   }
    /* page top 按鈕設定 */
    /* #p_top {
     position: fixed;
@@ -118,7 +132,7 @@
 
         <h1 class="m-5">午餐吃什麼？</h1>
         <!-- 抽獎按鈕 -->
-        <div class="d-flex">
+        <div class="d-flex draw">
             <div class="show result">
                 <span>？？？</span>
             </div>
@@ -136,7 +150,11 @@
         </a>
     </div> -->
 
-
+    <footer class="footer">
+        <div>
+            2024 版權所有
+        </div>
+    </footer>
 
     <script>
         // 獲取 Google Sheet 資料
