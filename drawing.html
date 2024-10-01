@@ -24,8 +24,8 @@
     list-style: none;
    }
    li.btn:hover {
-    border: 1px solid rgba(236, 201, 236, 0.7);
-    background-color: rgba(240, 137, 240, 0.342);
+    border: 1px solid rgba(173, 216, 230, 0.318);
+    background-color: rgba(173, 216, 230, 0.318);
    }
    a {
     color: blueviolet;
@@ -95,10 +95,10 @@
     <!-- 導航欄 -->
     <nav>
         <div class="container d-flex" id="h_top">
-        <a href="#" class="mt-3"><img src="./spoon-and-fork.png" style="width: 30px;" class="mb-3"><span style="font-size: 30px; font-weight: bold;">我的飲食日記</span></a>
+        <a href="./homepage.html" class="mt-3"><img src="./spoon-and-fork.png" style="width: 30px;" class="mb-3"><span style="font-size: 30px; font-weight: bold;">我的飲食日記</span></a>
         <!-- icon作者:<a href="https://www.flaticon.com/free-icons/spoon-and-fork" title="spoon and fork icons">Spoon and fork icons created by dickprayuda - Flaticon</a> -->
         <ul class="d-flex justify-content-center ms-auto">
-            <li class="ms-auto mt-3 mx-3 btn btn-lg"><a href="#">首頁</a></li>
+            <li class="ms-auto mt-3 mx-3 btn btn-lg"><a href="./homepage.html">首頁</a></li>
             <li class="mt-3 mx-3 btn btn-lg"><a href="#">飲食紀錄</a></li>
             <li class="mt-3 mx-3 btn btn-lg"><a href="#">營養資訊</a></li>
             <li class="mt-3 mx-3 btn btn-lg"><a href="#">吃什麼？</a></li>
@@ -179,22 +179,21 @@
                     min = 0;
                     return Math.floor(Math.random() * (max - min + 1)) + min;
                 }
+
+                // 亂數決定中選店家
+				txt = toggle[r()];                
+                console.log(txt);
+
                 // 清空、插入選項
                 let input = document.querySelector('.show');
                 input.innerHTML = '';
+                input.insertAdjacentHTML("beforeend", '<span>' + txt + '</span>');
                 console.log(input)
-                for(i = 0; i < toggle.length; i++) {
-                    input.insertAdjacentHTML("beforeend", '<span>' + toggle[i] + '</span>');
-                }
 
                 // 加入動畫 class name
                 const list = document.querySelectorAll('.show > span');
                 Array.prototype.forEach.call(list, l => l.classList.add('span-' + (toggle.length - 1)));
 
-                // 亂數決定中選店家
-				txt = toggle[r()];                
-				list[0].innerText = txt;
-                console.log(txt);
                 // 移除動畫
                 setTimeout(() => {
                     Array.prototype.forEach.call(list, l => l.removeAttribute('class'));
