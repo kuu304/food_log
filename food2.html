@@ -39,14 +39,18 @@
    nav {
     background-color: aliceblue;
    }
-   #add {
-    padding: 2px;
+   .add {
+    padding: 1px;
+    border: none;
+    background-color: white;
+    display: inline;
    }
-   #add:hover {
+   .add:hover {
     border: 1px solid lightgrey;
+    border-radius: 5px;
     background-color: rgba(107, 99, 99, 0.151);
    }
-   #new_add {
+   .new_add {
     display: none;
    }
    /* page top 按鈕設定 */
@@ -67,7 +71,7 @@
             <li class="ms-auto mt-3 mx-3 btn btn-lg"><a href="#">首頁</a></li>
             <li class="mt-3 mx-3 btn btn-lg"><a href="#">飲食紀錄</a></li>
             <li class="mt-3 mx-3 btn btn-lg"><a href="#">營養資訊</a></li>
-            <li class="mt-3 mx-3 btn btn-lg"><a href="#">吃什麼？</a></li>
+            <li class="mt-3 mx-3 btn btn-lg"><a href="./drawing.html">吃什麼？</a></li>
         </ul>
         </div>
     </nav>
@@ -87,13 +91,13 @@
             <div class="card-body row">
                 <div class="col-6">
                     <span>餐點名稱：</span><input type="text" placeholder="請輸入食物">
-                    <button class="btn mb-1" id="add"><span style="color: blue;">+新增</span></button>
+                    <button class="mb-1 add" id="A_bs"><span style="color: blue;">+新增</span></button>
                     <br><br>
                     <span>餐點熱量：</span><input type="text" placeholder="請輸入熱量(卡/大卡)">
                     <br><br>
                     <span style="display: inline-block; width: 80px;">備註：</span><input type="text">
                 </div>
-                <div class="col-6 new_add" id="new_add">
+                <div class="col-6 new_add" id="N_bs">
                     <span>餐點名稱：</span><input type="text" placeholder="請輸入食物">
                     <br><br>
                     <span>餐點熱量：</span><input type="text" placeholder="請輸入熱量(卡/大卡)">
@@ -105,56 +109,106 @@
         </div>
         <div class="card w-75 m-auto mt-5">
             <div class="card-header" id="lun"><h3>午餐：</h3></div>
-            <div class="card-body">
-                <span>餐點名稱：</span><input type="text" placeholder="請輸入食物">
-                <br><br>
-                <span>餐點熱量：</span><input type="text" placeholder="請輸入熱量(卡/大卡)">
-                <br><br>
-                <span style="display: inline-block; width: 80px;">備註：</span><input type="text">
+            <div class="card-body row">
+                <div class="col-6">
+                    <span>餐點名稱：</span><input type="text" placeholder="請輸入食物">
+                    <button class="mb-1 add" id="A_lun"><span style="color: blue;">+新增</span></button>
+                    <br><br>
+                    <span>餐點熱量：</span><input type="text" placeholder="請輸入熱量(卡/大卡)">
+                    <br><br>
+                    <span style="display: inline-block; width: 80px;">備註：</span><input type="text">
+                </div>
+                <div class="col-6 new_add" id="N_lun">
+                    <span>餐點名稱：</span><input type="text" placeholder="請輸入食物">
+                    <br><br>
+                    <span>餐點熱量：</span><input type="text" placeholder="請輸入熱量(卡/大卡)">
+                    <br><br>
+                    <span style="display: inline-block; width: 80px;">備註：</span><input type="text">
+                </div>
             </div>
         <div class="card-footer d-flex"><a href="#" class="btn btn-success ms-auto">提交</a></div>
         </div>
         <div class="card w-75 m-auto mt-5">
             <div class="card-header" id="din"><h3>晚餐：</h3></div>
-            <div class="card-body">
-                <span>餐點名稱：</span><input type="text" placeholder="請輸入食物">
-                <br><br>
-                <span>餐點熱量：</span><input type="text" placeholder="請輸入熱量(卡/大卡)">
-                <br><br>
-                <span style="display: inline-block; width: 80px;">備註：</span><input type="text">
+            <div class="card-body row">
+                <div class="col-6">
+                    <span>餐點名稱：</span><input type="text" placeholder="請輸入食物">
+                    <button class="mb-1 add" id="A_din"><span style="color: blue;">+新增</span></button>
+                    <br><br>
+                    <span>餐點熱量：</span><input type="text" placeholder="請輸入熱量(卡/大卡)">
+                    <br><br>
+                    <span style="display: inline-block; width: 80px;">備註：</span><input type="text">
+                </div>
+                <div class="col-6 new_add" id="N_din">
+                    <span>餐點名稱：</span><input type="text" placeholder="請輸入食物">
+                    <br><br>
+                    <span>餐點熱量：</span><input type="text" placeholder="請輸入熱量(卡/大卡)">
+                    <br><br>
+                    <span style="display: inline-block; width: 80px;">備註：</span><input type="text">
+                </div>
             </div>
         <div class="card-footer d-flex"><a href="#" class="btn btn-success ms-auto">提交</a></div>
         </div>
         <div class="card w-75 m-auto mt-5">
             <div class="card-header" id="midnight"><h3>宵夜：</h3></div>
-            <div class="card-body">
-                <span>餐點名稱：</span><input type="text" placeholder="請輸入食物">
-                <br><br>
-                <span>餐點熱量：</span><input type="text" placeholder="請輸入熱量(卡/大卡)">
-                <br><br>
-                <span style="display: inline-block; width: 80px;">備註：</span><input type="text">
+            <div class="card-body row">
+                <div class="col-6">
+                    <span>餐點名稱：</span><input type="text" placeholder="請輸入食物">
+                    <button class="mb-1 add" id="A_midn"><span style="color: blue;">+新增</span></button>
+                    <br><br>
+                    <span>餐點熱量：</span><input type="text" placeholder="請輸入熱量(卡/大卡)">
+                    <br><br>
+                    <span style="display: inline-block; width: 80px;">備註：</span><input type="text">
+                </div>
+                <div class="col-6 new_add" id="N_midn">
+                    <span>餐點名稱：</span><input type="text" placeholder="請輸入食物">
+                    <br><br>
+                    <span>餐點熱量：</span><input type="text" placeholder="請輸入熱量(卡/大卡)">
+                    <br><br>
+                    <span style="display: inline-block; width: 80px;">備註：</span><input type="text">
+                </div>
             </div>
         <div class="card-footer d-flex"><a href="#" class="btn btn-success ms-auto">提交</a></div>
         </div>
         <div class="card w-75 m-auto mt-5">
             <div class="card-header" id="snack"><h3>點心：</h3></div>
-            <div class="card-body">
-                <span>餐點名稱：</span><input type="text" placeholder="請輸入食物">
-                <br><br>
-                <span>餐點熱量：</span><input type="text" placeholder="請輸入熱量(卡/大卡)">
-                <br><br>
-                <span style="display: inline-block; width: 80px;">備註：</span><input type="text">
+            <div class="card-body row">
+                <div class="col-6">
+                    <span>餐點名稱：</span><input type="text" placeholder="請輸入食物">
+                    <button class="mb-1 add" id="A_snack"><span style="color: blue;">+新增</span></button>
+                    <br><br>
+                    <span>餐點熱量：</span><input type="text" placeholder="請輸入熱量(卡/大卡)">
+                    <br><br>
+                    <span style="display: inline-block; width: 80px;">備註：</span><input type="text">
+                </div>
+                <div class="col-6 new_add" id="N_snack">
+                    <span>餐點名稱：</span><input type="text" placeholder="請輸入食物">
+                    <br><br>
+                    <span>餐點熱量：</span><input type="text" placeholder="請輸入熱量(卡/大卡)">
+                    <br><br>
+                    <span style="display: inline-block; width: 80px;">備註：</span><input type="text">
+                </div>
             </div>
         <div class="card-footer d-flex"><a href="#" class="btn btn-success ms-auto">提交</a></div>
         </div>
         <div class="card w-75 m-auto mt-5">
             <div class="card-header" id="drink"><h3>飲料：</h3></div>
-            <div class="card-body">
-                <span>餐點名稱：</span><input type="text" placeholder="請輸入食物">
-                <br><br>
-                <span>餐點熱量：</span><input type="text" placeholder="請輸入熱量(卡/大卡)">
-                <br><br>
-                <span style="display: inline-block; width: 80px;">備註：</span><input type="text">
+            <div class="card-body row">
+                <div class="col-6">
+                    <span>餐點名稱：</span><input type="text" placeholder="請輸入食物">
+                    <button class="mb-1 add" id="A_drink"><span style="color: blue;">+新增</span></button>
+                    <br><br>
+                    <span>餐點熱量：</span><input type="text" placeholder="請輸入熱量(卡/大卡)">
+                    <br><br>
+                    <span style="display: inline-block; width: 80px;">備註：</span><input type="text">
+                </div>
+                <div class="col-6 new_add" id="N_drink">
+                    <span>餐點名稱：</span><input type="text" placeholder="請輸入食物">
+                    <br><br>
+                    <span>餐點熱量：</span><input type="text" placeholder="請輸入熱量(卡/大卡)">
+                    <br><br>
+                    <span style="display: inline-block; width: 80px;">備註：</span><input type="text">
+                </div>
             </div>
         <div class="card-footer d-flex"><a href="#" class="btn btn-success ms-auto">提交</a></div>
         </div>
@@ -172,12 +226,52 @@
 
 
     <script>
-        document.getElementById("add").addEventListener("click", function() {
+        window.onload = () => {
+            // 只要按某個新增鈕就全部一起跑出來(還沒想到怎麼改QQ)
+            /* document.querySelectorAll(".add").forEach(function(element) {
+            element.addEventListener("click", function() {
             // 顯示隱藏內容
-            document.getElementById("new_add").style.display = "block";
+                document.querySelectorAll(".new_add").forEach(function(newElement) {
+                newElement.style.display = "block";
+                    });
             // 隱藏按鈕
             this.style.display = "none";
-        });
+                });
+            });*/
+            // 早餐按鈕
+            document.getElementById('A_bs').addEventListener('click', function() {
+                // 顯示隱藏內容
+                document.getElementById('N_bs').style.display = 'block';
+                // 隱藏按鈕
+                this.style.display = 'none';
+            })
+            // 午餐按鈕
+            document.getElementById('A_lun').addEventListener('click', function() {
+                document.getElementById('N_lun').style.display = 'block';
+                this.style.display = 'none';
+            })
+            // 晚餐按鈕
+            document.getElementById('A_din').addEventListener('click', function() {
+                document.getElementById('N_din').style.display = 'block';
+                this.style.display = 'none';
+            })
+            // 宵夜按鈕
+            document.getElementById('A_midn').addEventListener('click', function() {
+                document.getElementById('N_midn').style.display = 'block';
+                this.style.display = 'none';
+            })
+            // 點心按鈕
+            document.getElementById('A_snack').addEventListener('click', function() {
+                document.getElementById('N_snack').style.display = 'block';
+                this.style.display = 'none';
+            })
+            // 飲料按鈕
+            document.getElementById('A_drink').addEventListener('click', function() {
+                document.getElementById('N_drink').style.display = 'block';
+                this.style.display = 'none';
+            })
+        }
+        
     </script>
 </body>
 
