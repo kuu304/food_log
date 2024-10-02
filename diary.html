@@ -75,29 +75,23 @@
     font-size: 30px;
     width: 500px;
     height: 65px;
-    margin-right: 50px;
-    margin-left: 250px;
+    margin-right: 120px;
+    margin-left: 200px;
     text-align: center;
     padding-top: 5px;
    }
    .result {
     overflow: hidden;
    }
-    /* content高度設定 */
-    .content {
-        min-height: 100%;
-        margin-bottom: 70px;
-    }
-    /* 地圖位置調整 */
-    #map {
-        margin-top: 80px;
-    }
     /* footer設定 */
     .footer {
     background-color: rgba(119, 136, 153, 0.497);
     text-align: center;
-    margin-top: 70px;
+    margin-top: 120px;
     height: 70px;
+   }
+   .draw {
+    padding-bottom: 250px;
    }
    /* footer內容調整 */
    footer > div {
@@ -119,13 +113,13 @@
         <!-- icon作者:<a href="https://www.flaticon.com/free-icons/spoon-and-fork" title="spoon and fork icons">Spoon and fork icons created by dickprayuda - Flaticon</a> -->
         <ul class="d-flex justify-content-center ms-auto">
             <li class="ms-auto mt-3 mx-3 btn btn-lg"><a href="./homepage.html">首頁</a></li>
-            <li class="mt-3 mx-3 btn btn-lg"><a href="./diary.html">飲食紀錄</a></li>
+            <li class="mt-3 mx-3 btn btn-lg"><a href="#">飲食紀錄</a></li>
             <li class="mt-3 mx-3 btn btn-lg"><a href="#">營養資訊</a></li>
             <li class="mt-3 mx-3 btn btn-lg"><a href="#">吃什麼？</a></li>
         </ul>
         </div>
     </nav>
-    <div class="container content">
+    <div class="container">
         <!-- 快捷建 -->
         <!-- <div class="row mt-3">
             <h4 class="col-1 ms-auto text-center"><a href="#bs">早餐</a></h4>
@@ -145,13 +139,7 @@
             <button class="btn-start">點我抽選！</button>
         </div>
 
-        <!-- 地圖 -->
-        <div id="map" class="map ms-auto me-auto" style="width: 800px; height: 400px;">
-            <iframe loading="lazy" src="" style="border: 0;" frameborder="0" allowfullscreen referrerpolicy="no-referr-when-downgrade" width="500px" height="400px"></iframe>
-        </div>
     </div>
-
-
      
 <!-- page top 按鍵 -->
     <!-- <div id="p_top">
@@ -164,82 +152,12 @@
 
     <footer class="footer">
         <div>
-            © 2024 飲食日記
+            © 2024 版權所有
         </div>
     </footer>
 
     <script>
-        // 獲取 Google Sheet 資料
-        const sheetId = '1yI7lDfEfMzTxKoohQ0SxJQgFoyeQedx6hCSC9hw2MoI';
-        const sheetApiKey = 'AIzaSyCaJATdoyNiM4uC4pFgjbS_RpQGTIPcZLs';
-        const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/Sheet1!A:A?key=${sheetApiKey}`;
-        const duration = 2000; // 拉霸效果執行多久
-
-        let lunch = []
-        fetch(url)
-        .then((response) => {
-            return response.json()
-        })
-        .then((data) => {
-            console.log(data)
-            const d = data.values
-            const len = d.length
-            lunch = d
-            console.log(lunch)
-        })
-
-        // 點擊按鈕後執行
-        let r; //亂數
-        let max, min;  //最大,最小值
-        let txt;  //結果
-
-        // 地圖
-        const map = document.querySelector("#map iframe");
-
-        // 按鈕
-        const btn = document.querySelector(".btn-start");
-
-        btn.addEventListener('click', e => {
-            e.preventDefault();
-            // 選店家
-            const chooseShop = toggle => {
-                // 取亂數
-                r = () => {
-                    max = toggle.length -1;
-                    min = 0;
-                    return Math.floor(Math.random() * (max - min + 1)) + min;
-                }
-
-                // 亂數決定中選店家
-				txt = toggle[r()];                
-                console.log(txt);
-
-                // 清空、插入選項
-                let input = document.querySelector('.show');
-                input.innerHTML = '';
-                input.insertAdjacentHTML("beforeend", '<span>' + txt + '</span>');
-                console.log(input)
-
-                // 加入動畫 class name
-                const list = document.querySelectorAll('.show > span');
-                Array.prototype.forEach.call(list, l => l.classList.add('span-' + (toggle.length - 1)));
-
-                // 移除動畫
-                setTimeout(() => {
-                    Array.prototype.forEach.call(list, l => l.removeAttribute('class'));
-                }, duration)
-
-                // 改變地圖位置
-                map.src = 'https://www.google.com/maps/embed/v1/place?key=' + sheetApiKey + '&q=' + txt;
-                // 顯示地圖
-                map.addEventListener('load', () => {
-                    map.classList.remove('hidden');
-                }, false);
-            }
-            chooseShop(lunch)
-
-        }, false)
-
+        
     </script>
 </body>
 

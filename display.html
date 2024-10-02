@@ -1,0 +1,32 @@
+<!-- display.html -->
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>飲食日記 - 顯示頁面</title>
+</head>
+<body>
+    <h1>我的飲食日記</h1>
+    <div id="foodList"></div>
+    <a href="input.html">返回輸入頁面</a>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const foodList = document.getElementById("foodList");
+
+            // 載入儲存的食物資料並顯示
+            const savedFoods = JSON.parse(localStorage.getItem("foodDiary")) || [];
+            if (savedFoods.length > 0) {
+                savedFoods.forEach(food => {
+                    const listItem = document.createElement("div");
+                    listItem.textContent = food;
+                    foodList.appendChild(listItem);
+                });
+            } else {
+                foodList.textContent = "目前沒有儲存的飲食資料。";
+            }
+        });
+    </script>
+</body>
+</html>
