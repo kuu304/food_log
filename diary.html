@@ -143,7 +143,7 @@
                     <br><br>
                     <span>餐點熱量：</span><div id="calList"></div>
                     <br><br>
-                    <span style="display: inline-block;">備註：</span><input type="text">
+                    <span style="display: inline-block;">備註：</span><div id="noteList"></div>
                 </div>
             </div>
         <div class="card-footer d-flex"><a id="bs_delete" class="btn btn-success ms-auto" style="font-size: 20px;">刪除</a></div>
@@ -161,8 +161,60 @@
             </div>
         <div class="card-footer d-flex"><a id="lun_delete" class="btn btn-success ms-auto" style="font-size: 20px;">刪除</a></div>
         </div>
+        <div class="card w-75 m-auto mt-5">
+            <div class="card-header" id="din"><h3>晚餐：</h3></div>
+            <div class="card-body row">
+                <div class="col-6">
+                    <span>餐點名稱：</span><div id="foodList3"></div>
+                    <br><br>
+                    <span>餐點熱量：</span><div id="calList3"></div>
+                    <br><br>
+                    <span style="display: inline-block;">備註：</span><input type="text">
+                </div>
+            </div>
+        <div class="card-footer d-flex"><a id="din_delete" class="btn btn-success ms-auto" style="font-size: 20px;">刪除</a></div>
+        </div>
+        <div class="card w-75 m-auto mt-5">
+            <div class="card-header" id="midnight"><h3>宵夜：</h3></div>
+            <div class="card-body row">
+                <div class="col-6">
+                    <span>餐點名稱：</span><div id="foodList4"></div>
+                    <br><br>
+                    <span>餐點熱量：</span><div id="calList4"></div>
+                    <br><br>
+                    <span style="display: inline-block;">備註：</span><input type="text">
+                </div>
+            </div>
+        <div class="card-footer d-flex"><a id="midnight_delete" class="btn btn-success ms-auto" style="font-size: 20px;">刪除</a></div>
+        </div>
+        <div class="card w-75 m-auto mt-5">
+            <div class="card-header" id="snack"><h3>點心：</h3></div>
+            <div class="card-body row">
+                <div class="col-6">
+                    <span>餐點名稱：</span><div id="foodList5"></div>
+                    <br><br>
+                    <span>餐點熱量：</span><div id="calList5"></div>
+                    <br><br>
+                    <span style="display: inline-block;">備註：</span><input type="text">
+                </div>
+            </div>
+        <div class="card-footer d-flex"><a id="snack_delete" class="btn btn-success ms-auto" style="font-size: 20px;">刪除</a></div>
+        </div>
+        <div class="card w-75 m-auto mt-5">
+            <div class="card-header" id="drink"><h3>飲料：</h3></div>
+            <div class="card-body row">
+                <div class="col-6">
+                    <span>餐點名稱：</span><div id="foodList6"></div>
+                    <br><br>
+                    <span>餐點熱量：</span><div id="calList6"></div>
+                    <br><br>
+                    <span style="display: inline-block;">備註：</span><input type="text">
+                </div>
+            </div>
+        <div class="card-footer d-flex"><a id="drink_delete" class="btn btn-success ms-auto" style="font-size: 20px;">刪除</a></div>
+        </div>
     </div>
-     
+
 <!-- page top 按鍵 -->
     <div id="p_top">
         <a href="#h_top">
@@ -196,8 +248,7 @@
         });
          document.addEventListener("DOMContentLoaded", function() {
             const calList = document.getElementById("calList");
-
-            // 載入儲存的食物資料並顯示
+            // 載入儲存的熱量資料並顯示
             const savedCals = JSON.parse(localStorage.getItem("foodCal")) || [];
             if (savedCals.length > 0) {
                 savedCals.forEach(cal => {
@@ -209,6 +260,25 @@
                 calList.textContent = "目前沒有儲存的飲食熱量。";
             }
             foodCal();
+        });
+         document.addEventListener("DOMContentLoaded", function() {
+            const noteList = document.getElementById("noteList");
+            // 載入儲存備註資料並顯示
+            const savedNotes = JSON.parse(localStorage.getItem("foodNote")) || [];
+            if (savedNotes.length > 0) {
+                savedNotes.forEach(note => {
+                    const listItem = document.createElement("div");
+                    listItem.textContent = note;
+                    noteList.appendChild(listItem);
+                });
+            } else {
+                noteList.textContent = "目前無備註。";
+            }
+            foodNote();
+        });
+        // 刪除
+        document.getElementById("bs_delete").addEventListener("click", function() {
+            localStorage.removeItem("noteList");
         });
             // 午餐
             document.addEventListener("DOMContentLoaded", function() {
@@ -242,6 +312,39 @@
             }
             foodCal2();
         });
+        // 晚餐
+        document.addEventListener("DOMContentLoaded", function() {
+        const foodList3 = document.getElementById("foodList3");
+        // 載入儲存的食物資料並顯示
+        const savedFoods3 = JSON.parse(localStorage.getItem("foodDiary3")) || [];
+        if (savedFoods3.length > 0) {
+            savedFoods3.forEach(food => {
+                const listItem = document.createElement("div");
+                listItem.textContent = food;
+                foodList3.appendChild(listItem);
+            });
+        } else {
+            foodList3.textContent = "目前沒有儲存的飲食資料。";
+        }
+        foodDiary3();
+    });
+     document.addEventListener("DOMContentLoaded", function() {
+        const calList3 = document.getElementById("calList3");
+
+        // 載入儲存的食物資料並顯示
+        const savedCals3 = JSON.parse(localStorage.getItem("foodCal3")) || [];
+        if (savedCals3.length > 0) {
+            savedCals3.forEach(cal => {
+                const listItem = document.createElement("div");
+                listItem.textContent = cal;
+                calList3.appendChild(listItem);
+            });
+        } else {
+            calList3.textContent = "目前沒有儲存的飲食熱量。";
+        }
+        foodCal3();
+    });
+
     </script>
 </body>
 

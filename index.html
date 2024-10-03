@@ -125,7 +125,7 @@
                     <br><br>
                     <span>餐點熱量：</span><input type="text" id="bs_cal" placeholder="請輸入熱量(卡/大卡)">
                     <br><br>
-                    <span style="display: inline-block;">備註：</span><input type="text">
+                    <span style="display: inline-block;">備註：</span><input type="text" id="bs_note">
                 </div>
                 <div class="col-6 new_add" id="N_bs">
                     <span>餐點名稱：</span><input type="text" placeholder="請輸入食物">
@@ -162,10 +162,10 @@
             <div class="card-header" id="din"><h3>晚餐：</h3></div>
             <div class="card-body row">
                 <div class="col-6">
-                    <span>餐點名稱：</span><input type="text" placeholder="請輸入食物">
+                    <span>餐點名稱：</span><input id="din_food" type="text" placeholder="請輸入食物">
                     <button class="mb-1 add" id="A_din"><span style="color: blue;">+新增</span></button>
                     <br><br>
-                    <span>餐點熱量：</span><input type="text" placeholder="請輸入熱量(卡/大卡)">
+                    <span>餐點熱量：</span><input id="din_cal" type="text" placeholder="請輸入熱量(卡/大卡)">
                     <br><br>
                     <span style="display: inline-block;">備註：</span><input type="text">
                 </div>
@@ -177,7 +177,7 @@
                     <span style="display: inline-block;">備註：</span><input type="text">
                 </div>
             </div>
-        <div class="card-footer d-flex"><a href="#" class="btn btn-success ms-auto" style="font-size: 20px;">提交</a></div>
+        <div class="card-footer d-flex"><a id="din_submit" class="btn btn-success ms-auto" style="font-size: 20px;">提交</a></div>
         </div>
         <div class="card w-75 m-auto mt-5">
             <div class="card-header" id="midnight"><h3>宵夜：</h3></div>
@@ -314,11 +314,13 @@
             const bs_food = document.getElementById("bs_food");
             const bs_submit = document.getElementById("bs_submit");
             const bs_cal = document.getElementById("bs_cal");
+            const bs_note = document.getElementById("bs_note");
             
             bs_submit.addEventListener("click", function(event) {
             event.preventDefault();
             const food = bs_food.value.trim();
             const cal = bs_cal.value.trim();
+            const note = bs_note.value.trim();
             // 確保兩者都有值才進行儲存
             if (food && cal) {
             // 儲存食物名稱
@@ -334,6 +336,14 @@
             // 載入更新後的日記和卡路里資料
             loadFoodDiary();
             loadFoodCal();
+            }
+
+            if (note) {
+                let foodNote = JSON.parse(localStorage.getItem("foodNote")) || [];
+                foodNote.push(note);
+                localStorage.setItem("foodNote", JSON.stringify(foodNote));
+                bs_note.value = '';
+                loadFoodNote();
             }
             }); 
             // 午餐
@@ -361,6 +371,33 @@
             // 載入更新後的日記和卡路里資料
             loadFoodDiary2();
             loadCal2();
+            }
+            }); 
+            // 晚餐
+            const din = document.getElementById("din");
+            const din_food = document.getElementById("din_food");
+            const din_submit = document.getElementById("din_submit");
+            const din_cal = document.getElementById("din_cal");
+            
+            din_submit.addEventListener("click", function(event) {
+            event.preventDefault();
+            const food3 = din_food.value.trim();
+            cal3 = din_cal.value.trim();
+            // 確保兩者都有值才進行儲存
+            if (food3 && cal3) {
+            // 儲存食物名稱
+            let foodDiary3 = JSON.parse(localStorage.getItem("foodDiary3")) || [];
+            foodDiary3.push(food3);
+            localStorage.setItem("foodDiary3", JSON.stringify(foodDiary3));
+            din_food.value = ''; // 清空食物輸入框
+            // 儲存卡路里
+            let foodCal3 = JSON.parse(localStorage.getItem("foodCal3")) || [];
+            foodCal3.push(cal3);
+            localStorage.setItem("foodCal3", JSON.stringify(foodCal3));
+            din_cal.value = ''; // 清空卡路里輸入框
+            // 載入更新後的日記和卡路里資料
+            loadFoodDiary3();
+            loadCal3();
             }
             }); 
         });
