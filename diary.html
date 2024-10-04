@@ -156,7 +156,7 @@
                     <br><br>
                     <span>餐點熱量：</span><div id="calList2"></div>
                     <br><br>
-                    <span style="display: inline-block;">備註：</span><input type="text">
+                    <span style="display: inline-block;">備註：</span><div id="noteList2"></div>
                 </div>
             </div>
         <div class="card-footer d-flex"><a id="lun_delete" class="btn btn-success ms-auto" style="font-size: 20px;">刪除</a></div>
@@ -169,7 +169,7 @@
                     <br><br>
                     <span>餐點熱量：</span><div id="calList3"></div>
                     <br><br>
-                    <span style="display: inline-block;">備註：</span><input type="text">
+                    <span style="display: inline-block;">備註：</span><div id="noteList3"></div>
                 </div>
             </div>
         <div class="card-footer d-flex"><a id="din_delete" class="btn btn-success ms-auto" style="font-size: 20px;">刪除</a></div>
@@ -182,7 +182,7 @@
                     <br><br>
                     <span>餐點熱量：</span><div id="calList4"></div>
                     <br><br>
-                    <span style="display: inline-block;">備註：</span><input type="text">
+                    <span style="display: inline-block;">備註：</span><div id="noteList4"></div>
                 </div>
             </div>
         <div class="card-footer d-flex"><a id="midnight_delete" class="btn btn-success ms-auto" style="font-size: 20px;">刪除</a></div>
@@ -195,7 +195,7 @@
                     <br><br>
                     <span>餐點熱量：</span><div id="calList5"></div>
                     <br><br>
-                    <span style="display: inline-block;">備註：</span><input type="text">
+                    <span style="display: inline-block;">備註：</span><div id="noteList5"></div>
                 </div>
             </div>
         <div class="card-footer d-flex"><a id="snack_delete" class="btn btn-success ms-auto" style="font-size: 20px;">刪除</a></div>
@@ -208,7 +208,7 @@
                     <br><br>
                     <span>餐點熱量：</span><div id="calList6"></div>
                     <br><br>
-                    <span style="display: inline-block;">備註：</span><input type="text">
+                    <span style="display: inline-block;">備註：</span><div id="noteList6"></div>
                 </div>
             </div>
         <div class="card-footer d-flex"><a id="drink_delete" class="btn btn-success ms-auto" style="font-size: 20px;">刪除</a></div>
@@ -278,7 +278,7 @@
         });
         // 刪除
         document.getElementById("bs_delete").addEventListener("click", function() {
-            localStorage.removeItem("noteList");
+            localStorage.clear();
         });
             // 午餐
             document.addEventListener("DOMContentLoaded", function() {
@@ -312,6 +312,25 @@
             }
             foodCal2();
         });
+        document.addEventListener("DOMContentLoaded", function() {
+            const noteList2 = document.getElementById("noteList2");
+            // 載入儲存備註資料並顯示
+            const savedNotes2 = JSON.parse(localStorage.getItem("foodNote2")) || [];
+            if (savedNotes2.length > 0) {
+                savedNotes2.forEach(note2 => {
+                    const listItem = document.createElement("div");
+                    listItem.textContent = note2;
+                    noteList2.appendChild(listItem);
+                });
+            } else {
+                noteList2.textContent = "目前無備註。";
+            }
+            foodNote2();
+        });
+            // 刪除
+            document.getElementById("lun_delete").addEventListener("click", function() {
+            localStorage.clear();
+        });
         // 晚餐
         document.addEventListener("DOMContentLoaded", function() {
         const foodList3 = document.getElementById("foodList3");
@@ -344,7 +363,162 @@
         }
         foodCal3();
     });
+    document.addEventListener("DOMContentLoaded", function() {
+            const noteList3 = document.getElementById("noteList3");
+            // 載入儲存備註資料並顯示
+            const savedNotes3 = JSON.parse(localStorage.getItem("foodNote3")) || [];
+            if (savedNotes3.length > 0) {
+                savedNotes3.forEach(note3 => {
+                    const listItem = document.createElement("div");
+                    listItem.textContent = note3;
+                    noteList3.appendChild(listItem);
+                });
+            } else {
+                noteList3.textContent = "目前無備註。";
+            }
+            foodNote3();
+        });
+        // 宵夜
+        document.addEventListener("DOMContentLoaded", function() {
+        const foodList4 = document.getElementById("foodList4");
+        // 載入儲存的食物資料並顯示
+        const savedFoods4 = JSON.parse(localStorage.getItem("foodDiary4")) || [];
+        if (savedFoods4.length > 0) {
+            savedFoods4.forEach(food4 => {
+                const listItem = document.createElement("div");
+                listItem.textContent = food4;
+                foodList4.appendChild(listItem);
+            });
+        } else {
+            foodList4.textContent = "目前沒有儲存的飲食資料。";
+        }
+        foodDiary4();
+    });
+     document.addEventListener("DOMContentLoaded", function() {
+        const calList4 = document.getElementById("calList4");
 
+        // 載入儲存的食物資料並顯示
+        const savedCals4 = JSON.parse(localStorage.getItem("foodCal4")) || [];
+        if (savedCals4.length > 0) {
+            savedCals4.forEach(cal4 => {
+                const listItem = document.createElement("div");
+                listItem.textContent = cal4;
+                calList4.appendChild(listItem);
+            });
+        } else {
+            calList4.textContent = "目前沒有儲存的飲食熱量。";
+        }
+        foodCal4();
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+            const noteList4 = document.getElementById("noteList4");
+            // 載入儲存備註資料並顯示
+            const savedNotes4 = JSON.parse(localStorage.getItem("foodNote4")) || [];
+            if (savedNotes4.length > 0) {
+                savedNotes4.forEach(note4 => {
+                    const listItem = document.createElement("div");
+                    listItem.textContent = note4;
+                    noteList4.appendChild(listItem);
+                });
+            } else {
+                noteList4.textContent = "目前無備註。";
+            }
+            foodNot4();
+        });
+        // 點心
+        document.addEventListener("DOMContentLoaded", function() {
+        const foodList5 = document.getElementById("foodList5");
+        // 載入儲存的食物資料並顯示
+        const savedFoods5 = JSON.parse(localStorage.getItem("foodDiary5")) || [];
+        if (savedFoods5.length > 0) {
+            savedFoods5.forEach(food5 => {
+                const listItem = document.createElement("div");
+                listItem.textContent = food5;
+                foodList5.appendChild(listItem);
+            });
+        } else {
+            foodList5.textContent = "目前沒有儲存的飲食資料。";
+        }
+        foodDiary5();
+    });
+     document.addEventListener("DOMContentLoaded", function() {
+        const calList5 = document.getElementById("calList5");
+
+        // 載入儲存的食物資料並顯示
+        const savedCals5 = JSON.parse(localStorage.getItem("foodCal5")) || [];
+        if (savedCals5.length > 0) {
+            savedCals5.forEach(cal5 => {
+                const listItem = document.createElement("div");
+                listItem.textContent = cal5;
+                calList5.appendChild(listItem);
+            });
+        } else {
+            calList5.textContent = "目前沒有儲存的飲食熱量。";
+        }
+        foodCal5();
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+            const noteList5 = document.getElementById("noteList5");
+            // 載入儲存備註資料並顯示
+            const savedNotes5 = JSON.parse(localStorage.getItem("foodNote5")) || [];
+            if (savedNotes5.length > 0) {
+                savedNotes5.forEach(note5 => {
+                    const listItem = document.createElement("div");
+                    listItem.textContent = note5;
+                    noteList5.appendChild(listItem);
+                });
+            } else {
+                noteList5.textContent = "目前無備註。";
+            }
+            foodNot5();
+        });
+        // 飲料
+        document.addEventListener("DOMContentLoaded", function() {
+        const foodList6 = document.getElementById("foodList6");
+        // 載入儲存的食物資料並顯示
+        const savedFoods6 = JSON.parse(localStorage.getItem("foodDiary6")) || [];
+        if (savedFoods6.length > 0) {
+            savedFoods6.forEach(food6 => {
+                const listItem = document.createElement("div");
+                listItem.textContent = food6;
+                foodList6.appendChild(listItem);
+            });
+        } else {
+            foodList6.textContent = "目前沒有儲存的飲食資料。";
+        }
+        foodDiary6();
+    });
+     document.addEventListener("DOMContentLoaded", function() {
+        const calList6 = document.getElementById("calList6");
+
+        // 載入儲存的食物資料並顯示
+        const savedCals6 = JSON.parse(localStorage.getItem("foodCal6")) || [];
+        if (savedCals6.length > 0) {
+            savedCals6.forEach(cal6 => {
+                const listItem = document.createElement("div");
+                listItem.textContent = cal6;
+                calList6.appendChild(listItem);
+            });
+        } else {
+            calList6.textContent = "目前沒有儲存的飲食熱量。";
+        }
+        foodCal6();
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+            const noteList6 = document.getElementById("noteList6");
+            // 載入儲存備註資料並顯示
+            const savedNotes6 = JSON.parse(localStorage.getItem("foodNote6")) || [];
+            if (savedNotes6.length > 0) {
+                savedNotes6.forEach(note6 => {
+                    const listItem = document.createElement("div");
+                    listItem.textContent = note6;
+                    noteList6.appendChild(listItem);
+                });
+            } else {
+                noteList6.textContent = "目前無備註。";
+            }
+            foodNot6();
+        });
     </script>
 </body>
 
