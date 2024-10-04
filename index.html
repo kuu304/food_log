@@ -177,7 +177,7 @@
                     <span style="display: inline-block;">備註：</span><input type="text">
                 </div>
             </div>
-        <div class="card-footer d-flex"><a id="din_submit" class="btn btn-success ms-auto" style="font-size: 20px;">提交</a></div>
+        <div class="card-footer d-flex"><a href="#" id="din_submit" class="btn btn-success ms-auto" style="font-size: 20px;">提交</a></div>
         </div>
         <div class="card w-75 m-auto mt-5">
             <div class="card-header" id="midnight"><h3>宵夜：</h3></div>
@@ -198,7 +198,7 @@
                     <span style="display: inline-block;">備註：</span><input type="text">
                 </div>
             </div>
-        <div class="card-footer d-flex"><a id="midn_submit" class="btn btn-success ms-auto" style="font-size: 20px;">提交</a></div>
+        <div class="card-footer d-flex"><a href="#" id="midn_submit" class="btn btn-success ms-auto" style="font-size: 20px;">提交</a></div>
         </div>
         <div class="card w-75 m-auto mt-5">
             <div class="card-header" id="snack"><h3>點心：</h3></div>
@@ -219,7 +219,7 @@
                     <span style="display: inline-block;">備註：</span><input type="text">
                 </div>
             </div>
-        <div class="card-footer d-flex"><a id="snack_sumbit" class="btn btn-success ms-auto" style="font-size: 20px;">提交</a></div>
+        <div class="card-footer d-flex"><a href="#" id="snack_submit" class="btn btn-success ms-auto" style="font-size: 20px;">提交</a></div>
         </div>
         <div class="card w-75 m-auto mt-5">
             <div class="card-header" id="drink"><h3>飲料：</h3></div>
@@ -240,7 +240,7 @@
                     <span style="display: inline-block;">備註：</span><input type="text">
                 </div>
             </div>
-        <div class="card-footer d-flex"><a id="drink_submit" class="btn btn-success ms-auto" style="font-size: 20px;">提交</a></div>
+        <div class="card-footer d-flex"><a href="#" id="drink_submit" class="btn btn-success ms-auto" style="font-size: 20px;">提交</a></div>
         </div>
     </div>
 <!-- page top 按鍵 -->
@@ -501,7 +501,7 @@
             
             drink_submit.addEventListener("click", function(event) {
             event.preventDefault();
-            const food6 = drink.value.trim();
+            const food6 = drink_food.value.trim();
             const cal6 = drink_cal.value.trim();
             const note6 = drink_note.value.trim();
             // 確保兩者都有值才進行儲存
